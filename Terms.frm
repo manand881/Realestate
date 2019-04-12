@@ -1,5 +1,5 @@
 VERSION 5.00
-Begin VB.Form frmAbout 
+Begin VB.Form Terms 
    BorderStyle     =   3  'Fixed Dialog
    Caption         =   "Dialog Caption"
    ClientHeight    =   3195
@@ -25,10 +25,10 @@ Begin VB.Form frmAbout
       Left            =   120
       TabIndex        =   1
       Top             =   120
-      Width           =   4335
+      Width           =   4455
    End
 End
-Attribute VB_Name = "frmAbout"
+Attribute VB_Name = "Terms"
 Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
@@ -37,7 +37,7 @@ Attribute VB_Exposed = False
 Option Explicit
 
 Private Sub Form_Load()
-Label1.Caption = "Real Estate Management Project" & vbNewLine & "" & vbNewLine & "By" & vbNewLine & "" & vbNewLine & "Harshitha B 16bgs85269" & vbNewLine & "Chaithra S 16bgs85264" & vbNewLine & "Megha R 16bgs85275"
+Label1.Caption = "Terms & Conditions are as follows:" & vbNewLine & "" & vbNewLine & "-> You affirm that the declared details are true." & vbNewLine & "-> You agree to pay the company commission as shown." & vbNewLine & "-> You will not ask for black money." & vbNewLine & "-> We will not settle any disputes between you and the customer after the sale of your property"
 End Sub
 
 Private Sub OKButton_Click()

@@ -71,8 +71,13 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
+Public db As Database
+Public rs As Recordset
+Public n As Integer
+Public password As String
+Public username As String
 Option Explicit
-
+Public login As Boolean
 Public LoginSucceeded As Boolean
 
 Private Sub cmdCancel_Click()
@@ -83,17 +88,28 @@ Private Sub cmdCancel_Click()
 End Sub
 
 Private Sub cmdOK_Click()
-    If txtPassword = "password" And txtUserName = "admin" Then
-        LoginSucceeded = True
-        Me.Hide
-        Main.Show
-        Unload Me
-    Else
+    rs.MoveFirst
+    LoginSucceeded = False
+    
+    While (Not rs.EOF)
+    n = rs.RecordCount
+        If txtUserName = rs.Fields(0).Value And txtPassword = rs.Fields(1).Value Then
+            LoginSucceeded = True
+            Main.Show
+            Unload Me
+        End If
+    rs.MoveNext
+    Wend
+    
+    If (LoginSucceeded = False) Then
         MsgBox "Invalid Credentials, try again!", , "Login"
         txtPassword.SetFocus
-        SendKeys "{Home}+{End}"
-        Unload Main
-        
     End If
+
 End Sub
 
+Private Sub Form_Load()
+Set db = OpenDatabase("C:\Program Files\Microsoft Visual Studio\VB98\Realestate\test.mdb")
+Set rs = db.OpenRecordset("select * from Admin")
+rs.MoveFirst
+End Sub

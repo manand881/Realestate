@@ -2,29 +2,31 @@ VERSION 5.00
 Begin VB.Form frmfeedback 
    BorderStyle     =   3  'Fixed Dialog
    Caption         =   "Dialog Caption"
-   ClientHeight    =   3195
+   ClientHeight    =   2910
    ClientLeft      =   2760
    ClientTop       =   3750
-   ClientWidth     =   6030
+   ClientWidth     =   5790
    LinkTopic       =   "Form1"
    MaxButton       =   0   'False
    MinButton       =   0   'False
-   ScaleHeight     =   3195
-   ScaleWidth      =   6030
+   Palette         =   "feedback.frx":0000
+   Picture         =   "feedback.frx":11F3B
+   ScaleHeight     =   2910
+   ScaleWidth      =   5790
    ShowInTaskbar   =   0   'False
    Begin VB.CommandButton Command1 
       Caption         =   "clear"
       Height          =   375
-      Left            =   4680
+      Left            =   4440
       TabIndex        =   8
       Top             =   1080
       Width           =   1215
    End
    Begin VB.ListBox List1 
       Height          =   255
-      ItemData        =   "feedback.frx":0000
+      ItemData        =   "feedback.frx":23E76
       Left            =   2280
-      List            =   "feedback.frx":0013
+      List            =   "feedback.frx":23E89
       TabIndex        =   7
       Top             =   1320
       Width           =   1935
@@ -48,7 +50,7 @@ Begin VB.Form frmfeedback
    Begin VB.CommandButton CancelButton 
       Caption         =   "Cancel"
       Height          =   375
-      Left            =   4680
+      Left            =   4440
       TabIndex        =   1
       Top             =   600
       Width           =   1215
@@ -56,19 +58,20 @@ Begin VB.Form frmfeedback
    Begin VB.CommandButton OKButton 
       Caption         =   "OK"
       Height          =   375
-      Left            =   4680
+      Left            =   4440
       TabIndex        =   0
       Top             =   120
       Width           =   1215
    End
    Begin VB.Label Label4 
       Alignment       =   2  'Center
+      BackStyle       =   0  'Transparent
       Caption         =   "Label4"
       Height          =   615
       Left            =   0
       TabIndex        =   9
       Top             =   2040
-      Width           =   5895
+      Width           =   5655
    End
    Begin VB.Label Label3 
       Caption         =   "Label3"

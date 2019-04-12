@@ -2,22 +2,23 @@ VERSION 5.00
 Begin VB.Form ViewFeedback 
    BorderStyle     =   3  'Fixed Dialog
    Caption         =   "Dialog Caption"
-   ClientHeight    =   3810
+   ClientHeight    =   3915
    ClientLeft      =   2760
    ClientTop       =   3750
-   ClientWidth     =   6030
+   ClientWidth     =   6090
    LinkTopic       =   "Form1"
    MaxButton       =   0   'False
    MinButton       =   0   'False
-   ScaleHeight     =   3810
-   ScaleWidth      =   6030
+   Picture         =   "ViewFeedback.frx":0000
+   ScaleHeight     =   3915
+   ScaleWidth      =   6090
    ShowInTaskbar   =   0   'False
    Begin VB.CommandButton Command3 
       Caption         =   "Last"
       Height          =   375
       Left            =   4680
       TabIndex        =   7
-      Top             =   2040
+      Top             =   3240
       Width           =   1215
    End
    Begin VB.CommandButton Command2 
@@ -25,7 +26,7 @@ Begin VB.Form ViewFeedback
       Height          =   375
       Left            =   4680
       TabIndex        =   6
-      Top             =   1560
+      Top             =   2760
       Width           =   1215
    End
    Begin VB.CommandButton Command1 
@@ -33,7 +34,7 @@ Begin VB.Form ViewFeedback
       Height          =   375
       Left            =   4680
       TabIndex        =   5
-      Top             =   1080
+      Top             =   2280
       Width           =   1215
    End
    Begin VB.CommandButton CancelButton 
@@ -41,7 +42,7 @@ Begin VB.Form ViewFeedback
       Height          =   375
       Left            =   4680
       TabIndex        =   1
-      Top             =   600
+      Top             =   1800
       Width           =   1215
    End
    Begin VB.CommandButton OKButton 
@@ -49,7 +50,7 @@ Begin VB.Form ViewFeedback
       Height          =   375
       Left            =   4680
       TabIndex        =   0
-      Top             =   120
+      Top             =   1320
       Width           =   1215
    End
    Begin VB.Label Label7 
@@ -57,7 +58,7 @@ Begin VB.Form ViewFeedback
       Height          =   495
       Left            =   120
       TabIndex        =   11
-      Top             =   1800
+      Top             =   3120
       Width           =   1575
    End
    Begin VB.Label Label6 
@@ -65,7 +66,7 @@ Begin VB.Form ViewFeedback
       Height          =   495
       Left            =   120
       TabIndex        =   10
-      Top             =   1080
+      Top             =   2280
       Width           =   1575
    End
    Begin VB.Label Label5 
@@ -73,16 +74,17 @@ Begin VB.Form ViewFeedback
       Height          =   495
       Left            =   120
       TabIndex        =   9
-      Top             =   240
+      Top             =   1440
       Width           =   1575
    End
    Begin VB.Label Label4 
       Alignment       =   2  'Center
+      BackStyle       =   0  'Transparent
       Caption         =   "Label4"
       Height          =   855
       Left            =   120
       TabIndex        =   8
-      Top             =   2760
+      Top             =   120
       Width           =   5775
    End
    Begin VB.Label Label3 
@@ -90,7 +92,7 @@ Begin VB.Form ViewFeedback
       Height          =   495
       Left            =   2040
       TabIndex        =   4
-      Top             =   1920
+      Top             =   3120
       Width           =   2415
    End
    Begin VB.Label Label2 
@@ -98,7 +100,7 @@ Begin VB.Form ViewFeedback
       Height          =   495
       Left            =   2040
       TabIndex        =   3
-      Top             =   1080
+      Top             =   2280
       Width           =   2415
    End
    Begin VB.Label Label1 
@@ -106,7 +108,7 @@ Begin VB.Form ViewFeedback
       Height          =   495
       Left            =   2040
       TabIndex        =   2
-      Top             =   240
+      Top             =   1440
       Width           =   2415
    End
 End
@@ -118,7 +120,6 @@ Attribute VB_Exposed = False
 Public db As Database
 Public rs As Recordset
 Dim counter As Integer
-
 Private Sub CancelButton_Click()
 
 ' Move First
@@ -182,6 +183,7 @@ Private Sub Form_Load()
 Set db = OpenDatabase("C:\Program Files\Microsoft Visual Studio\VB98\Realestate\test.mdb")
 Set rs = db.OpenRecordset("select * from feedback")
 rs.MoveFirst
+Sum = 0
 counter = 1
 While (rs.BOF = False)
 counter = counter + 1
@@ -207,6 +209,10 @@ Label7.Caption = "Rating"
 Label4.Font.Size = 30
 Label4.Font.Name = "arial"
 Label4.Caption = "Customer Feedback"
+
+'Label8.Font.Size = 10
+'Label8.Font.Name = "arial"
+'Label8.Caption = "Average Rating"
 
 Label1.Caption = rs.Fields(0).Value
 Label2.Caption = rs.Fields(1).Value
