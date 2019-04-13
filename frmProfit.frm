@@ -35,7 +35,7 @@ Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Public db As Database
 Public rs As Recordset
-Dim Counter As Integer
+Dim counter As Integer
 Dim buffer As Double
 Dim profit As Double
 Option Explicit
@@ -43,12 +43,12 @@ Option Explicit
 Private Sub Form_Load()
 
 Set db = OpenDatabase("C:\Program Files\Microsoft Visual Studio\VB98\Realestate\test.mdb")
-Set rs = db.OpenRecordset("select * from Seller")
+Set rs = db.OpenRecordset("select * from Profit")
 rs.MoveFirst
 
-Counter = 0
+counter = 0
 While (Not rs.EOF)
-buffer = rs.Fields(7).Value
+buffer = rs.Fields(0).Value
 profit = profit + buffer
 rs.MoveNext
 Wend

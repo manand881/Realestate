@@ -210,6 +210,8 @@ Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Public db As Database
 Public rs As Recordset
+Public db_profit As Database
+Public rs_profit As Recordset
 Dim textval As String
 Dim numval As String
 Dim counter As Integer
@@ -247,36 +249,17 @@ End Sub
 
 Private Sub Command3_Click()
 
+'buy
 If Check2.Value = False Then
 MsgBox "You cannot submit the form untill you accept our terms and conditions"
 GoTo skip
 End If
-If Text1.Text = "" Or Text2.Text = "" Or Text3.Text = "" Or Text4.Text = "" Or Text5.Text = "" Or Text6.Text = "" Then
+rs_profit.AddNew
+rs_profit.Fields(0) = Text7.Text * 2
+rs_profit.Update
+rs.Delete
 
-MsgBox "Invalid entry, try again!"
-
-Else
-
-rs.AddNew
-rs.Fields(0).Value = Text1.Text
-rs.Fields(1).Value = Text2.Text
-rs.Fields(2).Value = Text3.Text
-rs.Fields(3).Value = Text4.Text
-rs.Fields(4).Value = Text5.Text
-rs.Fields(5).Value = Text6.Text
-rs.Fields(7).Value = Text7.Text
-If Check1.Value = False Then
-
-rs.Fields(6).Value = "No"
-
-Else
-
-rs.Fields(6).Value = "Yes"
-
-End If
-MsgBox "Your Details have been added to our database we will contact you when we find a buyer."
-rs.Update
-End If
+MsgBox "congratulations on your new property"
 skip:
 End Sub
 
@@ -344,7 +327,6 @@ Command6.Enabled = True
 End Sub
 
 Private Sub Form_Load()
-
 'Form Load
 WindowState = vbMaximized
 
@@ -367,6 +349,8 @@ Label7.Font.Name = "arial"
 
 Set db = OpenDatabase("C:\Program Files\Microsoft Visual Studio\VB98\Realestate\test.mdb")
 Set rs = db.OpenRecordset("select * from Seller")
+Set db_profit = OpenDatabase("C:\Program Files\Microsoft Visual Studio\VB98\Realestate\test.mdb")
+Set rs_profit = db.OpenRecordset("select * from Profit")
 
 rs.MoveFirst
 Text1.Text = rs.Fields(0).Value
@@ -383,6 +367,7 @@ While (Not rs.EOF)
 counter = rs.AbsolutePosition
 rs.MoveNext
 Wend
+rs.MoveFirst
 End Sub
 
 Private Sub Text3_Change()
