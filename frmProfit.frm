@@ -34,29 +34,30 @@ Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Public db As Database
-Public rs_profit As Recordset
-Public db1 As Database
-Public rs_seller As Recordset
+Public rs As Recordset
 Dim Counter As Integer
+Dim buffer As Double
+Dim profit As Double
 Option Explicit
 
 Private Sub Form_Load()
-Set db = OpenDatabase("C:\Program Files\Microsoft Visual Studio\VB98\Realestate\test.mdb")
-Set rs_profit = db.OpenRecordset("select * from Profit")
-'rs_profit.MoveFirst
 
-Set db1 = OpenDatabase("C:\Program Files\Microsoft Visual Studio\VB98\Realestate\test.mdb")
-Set rs_seller = db.OpenRecordset("select * from Seller")
-rs_seller.MoveFirst
+Set db = OpenDatabase("C:\Program Files\Microsoft Visual Studio\VB98\Realestate\test.mdb")
+Set rs = db.OpenRecordset("select * from Seller")
+rs.MoveFirst
 
 Counter = 0
-While (Not rs_seller.EOF)
-rs_profit.Fields(0).Value = rs_seller.Fields(7).Value
-rs_profit.Update
-rs_profit.MoveNext
-rs_seller.MoveNext
-Counter = Counter + 1
+While (Not rs.EOF)
+buffer = rs.Fields(7).Value
+profit = profit + buffer
+rs.MoveNext
 Wend
+
+Label1.Caption = "Total Profit made till date is: " & profit & " Rupees"
 
 End Sub
 
+
+Private Sub OKButton_Click()
+Unload Me
+End Sub
