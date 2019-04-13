@@ -37,7 +37,7 @@ Attribute VB_Exposed = False
 Option Explicit
 
 Private Sub Form_Load()
-Label1.Caption = "Terms & Conditions are as follows:" & vbNewLine & "" & vbNewLine & "-> You affirm that the declared details are true." & vbNewLine & "-> You agree to pay the company commission as shown." & vbNewLine & "-> You will not ask for black money." & vbNewLine & "-> We will not settle any disputes between you and the customer after the sale of your property"
+Label1.Caption = "Terms & Conditions are as follows for sellers:" & vbNewLine & "" & vbNewLine & "-> You affirm that the declared details are true." & vbNewLine & "-> You agree to pay the company commission as shown." & vbNewLine & "-> You will not ask for black money." & vbNewLine & "-> We will not settle any disputes between you and the customer after the sale of your property" & vbNewLine & "" & vbNewLine & "Terms & Conditions are as follows for buyers:" & vbNewLine & "" & vbNewLine & "-> You will not offer to pay the seller in black money" & vbNewLine & "-> You agree to pay us our commission for our serviecs once you buy the property." & vbNewLine & "-> We will not settle any disputes between you and the seller "
 End Sub
 
 Private Sub OKButton_Click()

@@ -233,6 +233,8 @@ Private Sub Form_Load()
 
 'Form Load
 
+WindowState = vbMaximized
+
 Label1.Font.Size = 12
 Label2.Font.Size = 12
 Label3.Font.Size = 12
