@@ -225,7 +225,9 @@ Text3.Text = ""
 Text4.Text = ""
 Text5.Text = ""
 Text6.Text = ""
-Check1.Value = False
+Text7.Text = ""
+Text8.Text = ""
+Check2.Value = False
 
 End Sub
 

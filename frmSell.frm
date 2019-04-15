@@ -182,7 +182,9 @@ Text3.Text = ""
 Text4.Text = ""
 Text5.Text = ""
 Text6.Text = ""
+Text7.Text = ""
 Check1.Value = False
+Check2.Value = False
 
 End Sub
 
